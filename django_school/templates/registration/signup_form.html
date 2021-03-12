@@ -1,0 +1,362 @@
+
+
+{% load crispy_forms_tags %}
+
+
+
+
+
+
+{% load i18n %}
+{% trans alert %}
+
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CAP-MAT</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'space/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'space/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'space/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'space/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'space/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'space/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'space/css/responsive.css' %}">
+    
+    <!-- Js -->
+    <script src="{% static 'space/js/vendor/modernizr-2.6.2.min.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' %}"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'space/js/vendor/jquery-1.10.2.min.js' %}"><\/script>')</script>
+    <script src="{% static 'space/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'space/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'space/js/plugins.js' %}"></script>
+    <script src="{% static 'space/js/min/waypoints.min.js' %}"></script>
+    <script src="{% static 'space/js/jquery.counterup.js' %}"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js'"></script>
+    <script src="{% static 'space/js/google-map-init.js' %}"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css" rel="stylesheet"/>
+
+    <script src="{% static 'space/js/main.js' %}"></script>
+
+
+  </head>
+  <body>
+
+
+
+    <!-- Header Start -->
+
+
+    <!-- Header Start -->
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- header Nav Start -->
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">CapMat</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="">
+                    <img src="{% static 'space/img/logo166.png' %}" alt="CAP-MAT">
+                  </a>
+                </div>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="{% url 'home' %}">{% trans 'Accueil' %} </a></li>
+              
+                 
+                      <li><a href="{% url 'student_signup' %}">{% trans 'S’inscrire' %}</a></li>
+                      <li><a href="{% url 'login' %}">{% trans 'S’identifier' %}</a></li>
+                      <li><a class="nav-link"><span style="font-size:25px" class="flag-icon flag-icon-fr"></span></a></li>
+                      <li><a class="nav-link"><span style="font-size:25px" class="flag-icon flag-icon-us"></span></a></li>
+  
+                    </ul>
+                  </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header><!-- header close -->
+          
+    <!-- Slider Start -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Wrapper Start -->
+    <section id="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-sm-12">
+            <div class="block">
+              <div class="section-title">
+            
+                <h4>Pour des raisons de confidentialité, merci de créer votre compte</h4>
+                <h6>Vos données personnelles sont protégées</h6>
+          
+
+                <div class="offset-lg-2 col-lg-8 offset-md-1 col-md-10">
+
+
+
+  {% load crispy_forms_tags %}
+
+
+
+
+  <p class="lead"></p>
+  <form method="POST" class="post-form" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+
+
+      <div class="col-md-12 text-center">
+                                    <button type="submit"  ><span>Créer votre compte</span></button>
+                                </div>
+
+
+
+</form>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             
+              </div>
+          
+            </div>
+          </div><!-- .col-md-7 close -->
+          <div class="col-md-5 col-sm-12">
+            <div class="block">
+              <img src="{% static 'space/img/wrapper-img.gif' %}" alt="Img">
+            </div>
+          </div><!-- .col-md-5 close -->
+        </div>
+      </div>
+    </section>
+
+
+
+        <section class="contact section-padding" data-scroll-index="7">
+            <div class="container">
+                <div class="row">
+
+
+
+
+
+            </div>
+            </div>
+        </section>
+
+
+
+
+
+
+    
+    <!-- footer Start -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+     
+            <p>Copyright &copy; <a href="https://erpi.univ-lorraine.fr/fr/">2020 ERPI Laboratory. All Rights Reserved.</a>.</p>
+          
+          </div>
+        </div>
+      </div>
+    </footer>
+            
+            
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+            
+    
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

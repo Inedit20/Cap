@@ -1,0 +1,291 @@
+
+
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>CapMat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{%  static  'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{%  static  'css/jquery-ui.css' %}">
+  <link rel="stylesheet" href="{%  static  'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{%  static  'css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{%  static  'css/owl.theme.default.min.css' %}">
+
+  <link rel="stylesheet" href="{%  static  'css/jquery.fancybox.min.css' %}">
+
+  <link rel="stylesheet" href="{%  static  'css/bootstrap-datepicker.css' %}">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css' %}">
+
+  <link rel="stylesheet" href="{%  static  'css/aos.css' %}">
+
+  <link rel="stylesheet" href="{%  static  'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<style>
+
+
+p {
+     width: 450px;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+}
+
+
+
+.box {
+
+  background-color: lightgray;
+  padding: 40px;
+  margin: 40px;
+  width: 600px;
+  height: 200px;
+}
+
+.alternate {
+  box-sizing: border-box;
+}
+    
+
+
+</style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+   
+    <header>
+      <!-- Header Start -->
+      <div class="header-area header_area header-transparent">
+          <div class="main-header">
+          <div class="header-bottom  header-sticky">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                  
+    
+                  <div class="col-xl-2 col-lg-1 col-md-1">
+                    <div class="logo">
+                    <a href="{% url 'home' %}"><img src="{% static 'space/img/logo166.png' %}" alt="CAP-MAT"></a>
+                    </div>
+                  </div>
+                
+                  <div class="col-xl-8 col-lg-8 col-md-8">
+                    <!-- Main-menu -->
+                    <div class="main-menu f-right d-none d-lg-block">
+    
+    
+    
+    
+                              {% load notifications_tags %}
+                              {% notifications_unread as unread_count %}
+                            
+    
+    
+                      <nav> 
+                        <ul id="navigation">                                                                                                                                     
+                          <li><a href="{% url 'students:first_page' %}">{% trans 'Accueil' %}</a></li>
+                          
+                        
+                          
+                          <li><a >Projets</a>
+                            <ul class="submenu">
+                              <li><a href="{% url 'students:lanceur_projet_home' %}">{% trans 'Nouveau projet'%}</a></li>
+                              <li><a href="{% url 'students:mes_projets' %}">{% trans 'Liste de mes projets '%}</a></li>
+                            </ul>
+                          </li>
+    
+                          <li><a href="{% url 'students:collaborations' %}">Collaborations</a>
+                            <ul class="submenu">
+                              <li><a href="{% url 'students:list_actuelle' %}">Mes Collaborations actuelles</a></li>
+                              <li><a href="{% url 'students:list_potentielle' %}">Mes Collaborations potentielles</a></li>
+                            </ul>
+                          </li>
+                          
+    
+                          <li><a href="{% url 'students:technologies' %}">Technologies</a>
+                            <ul class="submenu">
+                              <li><a href="{% url 'students:MesTechnologies_list' %}">La Banque de Technologie</a></li>
+                              <li><a href="{% url 'students:capteur_home' %}">Mes Technologies</a></li>
+                            </ul>
+                          </li>
+                          
+                          <li><a href="{% url 'students:expert_home' %}">Experts</a>
+                            <ul class="submenu">
+                              <li><a href="{% url 'students:Annuaire' %}">Annuaire des experts</a></li>
+                              <li><a href="{% url 'students:liste' %}">Liste des Experts de mes projets</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="{% url 'question_an' %}">Boîte <span style="text-transform:lowercase;">à</span> idées</a>
+                          
+                          </li>
+  
+                          
+  
+                        
+                          <li><a   href="{% url 'notice:inbox' %}"><i class="fas fa-envelope fa-2x"></i><span class="badge badge-danger" >{% if unread_count %}{{ unread_count }}</span>{% endif %}</a></li>
+                          
+                        
+                            <li><a href="{% url 'students:profile' %}"> <i class="far fa-address-card fa-2x"></i></a>
+                              <ul class="submenu">
+                                <li><a >{{ request.user.username }}</a></li>
+                                <li><a href="{% url 'students:profile_dispaly' %}">Mon Profile</a></li>
+                                <li><a href="{% url 'notice:inbox' %}"> Inbox {% if unread_count %} </span>{% endif %}</a></li>
+                                <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+                              </ul>
+                            </li>
+    
+                            
+                          
+      
+                            
+    
+    
+                          
+    
+    
+                            
+                    
+    
+    
+    
+                           
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>             
+                  <div class="col-xl-2 col-lg-3 col-md-3">
+                    <div class="header-right-btn f-right d-none d-lg-block">
+                      
+                        <div class="notification">
+                          <svg viewbox="0 0 166 197">
+                            <path d="M82.8652955,196.898522 C97.8853137,196.898522 110.154225,184.733014 110.154225,169.792619 L55.4909279,169.792619 C55.4909279,184.733014 67.8452774,196.898522 82.8652955,196.898522 L82.8652955,196.898522 Z" class="notification--bellClapper"></path>
+                          <path d="M146.189736,135.093562 L146.189736,82.040478 C146.189736,52.1121695 125.723173,27.9861651 97.4598237,21.2550099 L97.4598237,14.4635396 C97.4598237,6.74321823 90.6498186,0 82.8530327,0 C75.0440643,0 68.2462416,6.74321823 68.2462416,14.4635396 L68.2462416,21.2550099 C39.9707102,27.9861651 19.5163297,52.1121695 19.5163297,82.040478 L19.5163297,135.093562 L0,154.418491 L0,164.080956 L165.706065,164.080956 L165.706065,154.418491 L146.189736,135.093562 Z" class="notification--bell"></path>
+                          </svg>
+                          {% if unread_count %}
+                          <span><a  class="notification--num"href="{% url 'notice:list' %}" >{{ unread_count }}</a></span>  
+                          {% endif %}
+                          </div>
+                        
+                      
+                    </div>
+                  </div>
+                  <!-- Mobile Menu -->
+                  <div class="col-12">
+                    <div class="mobile_menu d-block d-lg-none"></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          </div>
+      </div>
+      <!-- Header End -->
+    </header>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="site-section cta-big-image" id="about-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-8 text-center">
+           
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 blog-content">
+
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Projet</th>
+                  <th>Subject</th>
+                  <th>Détail</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for quiz in quizzes %}
+                  <tr>
+                    <td class="align-middle">{{ quiz.titre_projet }}</td>
+                    <td class="align-middle">{{ quiz.description_projet }}</td>
+
+                    <td class="align-middle">
+                      <a href="{% url 'students:forum_detail' quiz.slug %}" class="btn btn-info">Détail</a>
+                    </td>
+                    <td class="align-middle">
+                      <a href="" class="btn btn-primary">Contacter</a>
+                    </td>
+                  </tr>
+                {% empty %}
+                  <tr>
+                    <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+          </div>
+          <div class="col-md-4 sidebar">
+        
+            <div class="sidebar-box">
+              <div class="categories">
+                <h3>Categories</h3>
+                <li><a href="{% url 'home' %}"><span><i class="material-icons">home</i></span> Accueil </a></li>
+                <li><a href="{% url 'students:projet_add' %}"> <span><i class="material-icons">computer</i></span>Nouveau projet</a></li>
+                <li><a href="{% url 'students:lanceur_projet_home' %}">Mes Projets <span><i class="material-icons">attachment</i></span></a></li>
+                <li><a href="{% url 'students:collaborations' %}">Mes Proposition de collaborations <span><i class="material-icons">cloud</i></span></a></li>
+                <li><a href="{% url 'students:capteur_home' %}">Mes Capteurs <span><i class="material-icons">traffic</i></span></a></li>
+                <li><a href="{% url 'students:profile' %}">Profile <span><i class="material-icons">person</i></span></a></li>
+                <li><a href="{% url 'logout' %}">Se déconnecter <span><i class="fa fa-sign-out"></i></span></a></li>
+             
+              </div>
+            </div>
+        
+    
+         
+          </div>
+        </div>
+        </div>    
+     
+  
+      </div>  
+    </div>
+
